@@ -1,11 +1,18 @@
-function textToArray(string) {
+function textToArray(string, reverse) {
   var stringLength = string.length;
   var array = new Array;
-  console.log(array);
-  for (var i = 0; i < stringLength; i++) {
-    array.push(string.substring(i, i + 1));
+
+  if(!reverse || typeof reverse == undefined){
+    for (var i = 0; i < stringLength; i++) {
+      array.push(string.substring(i, i + 1));
+    }
+    return array;
+  }else if(reverse){
+    for (var i = 0; i < stringLength; i++) {
+      array.unshift(string.substring(i, i + 1));
+    }
+    return array;
   }
-  return array;
 }
 
-textToArray("Hello, world!");
+console.log(textToArray("Hello", false)); //Make second param true for reversed array
